@@ -5,13 +5,13 @@ body {
   justify-content: center;
 }
 
-.form-div{
- width: 250px;
+.form-div {
+  width: 250px;
 }
 
 .form {
-  margin: 3%;
   background-color: white;
+  margin: 3%;
   border-radius: 10px;
   padding: 5px;
 }
