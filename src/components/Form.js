@@ -3,6 +3,21 @@ import '../Form.css';
 
 class Form extends React.Component {
   render() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick
+    } = this.props;
+
     return (
       <div className="form-div">
         <div>
@@ -14,6 +29,8 @@ class Form extends React.Component {
               id="name-input"
               name="name-input"
               className="form"
+              value={ cardName }
+              onChange={ onInputChange }
             />
           </label>
         </div>
@@ -27,6 +44,8 @@ class Form extends React.Component {
               id="description-input"
               name="description-input"
               className="form description"
+              value={ cardDescription }
+              onChange={ onInputChange }
             />
           </label>
         </div>
@@ -40,6 +59,8 @@ class Form extends React.Component {
               id="attr1-input"
               name="attr1-input"
               className="form"
+              value={ cardAttr1 }
+              onChange={ onInputChange }
             />
           </label>
         </div>
@@ -53,6 +74,8 @@ class Form extends React.Component {
               id="attr2-input"
               name="attr2-input"
               className="form"
+              value={ cardAttr2 }
+              onChange={ onInputChange }
             />
           </label>
         </div>
@@ -66,6 +89,8 @@ class Form extends React.Component {
               id="attr3-input"
               name="attr3-input"
               className="form"
+              value={ cardAttr3 }
+              onChange={ onInputChange }
             />
           </label>
         </div>
@@ -79,6 +104,8 @@ class Form extends React.Component {
               id="image-input"
               name="image-input"
               className="form"
+              value={ cardImage }
+              onChange={ onInputChange }
             />
           </label>
         </div>
@@ -91,6 +118,8 @@ class Form extends React.Component {
               id="rare-input"
               name="rare-input"
               className="form"
+              value={ cardRare }
+              onChange={ onInputChange }
             >
               <option value="normal">normal</option>
               <option value="raro">raro</option>
@@ -107,6 +136,8 @@ class Form extends React.Component {
               type="checkbox"
               id="trunfo-input"
               name="trunfo-input"
+              checked={ cardTrunfo }
+              onChange={ onInputChange }
             />
           </label>
         </div>
@@ -117,6 +148,8 @@ class Form extends React.Component {
             type="submit"
             name="save-button"
             id="save-button"
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
           >
             Salvar
           </button>
