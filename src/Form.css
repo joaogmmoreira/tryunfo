@@ -1,0 +1,9 @@
+body {
+  color:white;
+  background-color: #181b1f;
+  display: flex;
+  justify-content: center;
+}
+.form {
+  margin: 2%
+}
