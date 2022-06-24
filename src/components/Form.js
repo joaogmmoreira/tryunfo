@@ -4,7 +4,7 @@ import '../Form.css';
 class Form extends React.Component {
   render() {
     return (
-      <div>
+      <div className="form-div">
         <div>
           <label htmlFor="name-input">
             Name:
@@ -26,7 +26,7 @@ class Form extends React.Component {
               type="text"
               id="description-input"
               name="description-input"
-              className="form"
+              className="form description"
             />
           </label>
         </div>

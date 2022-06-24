@@ -1,9 +1,21 @@
 body {
-  color:white;
   background-color: #181b1f;
+  color: white;
   display: flex;
   justify-content: center;
 }
+
+.form-div{
+ width: 250px;
+}
+
 .form {
-  margin: 2%
+  margin: 3%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.description {
+  height: 50px;
 }
