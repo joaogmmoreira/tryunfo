@@ -1,14 +1,10 @@
 import React from 'react';
-// import Card from './Card';
+import PropTypes from 'prop-types';
 import data from './DataCards';
 
 class CardsComponent extends React.Component {
   render() {
-    const isTrunfoCard = (cardInfo) => {
-      if (cardInfo) {
-        return (<span data-testid="trunfo-card">Super Trunfo</span>);
-      }
-    };
+    const { isTrunfoCard } = this.props;
 
     const cardsList = data.map((element) => (
       <div key={ element.name }>
@@ -26,6 +22,7 @@ class CardsComponent extends React.Component {
         <span>{ isTrunfoCard(element.cardTrunfo) }</span>
       </div>
     ));
+
     return (
       <div>
         {cardsList}
@@ -33,5 +30,9 @@ class CardsComponent extends React.Component {
     );
   }
 }
+
+CardsComponent.propTypes = {
+  isTrunfoCard: PropTypes.func.isRequired,
+};
 
 export default CardsComponent;

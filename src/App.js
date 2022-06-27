@@ -2,7 +2,7 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import data from './components/DataCards';
-import CardsComponent from './components/CardsComponent';
+// import CardsComponent from './components/CardsComponent';
 
 class App extends React.Component {
   constructor() {
@@ -153,9 +153,9 @@ class App extends React.Component {
           { ...this.state }
           isTrunfoCard={ this.isTrunfoCard }
         />
-        <CardsComponent
+        {/* <CardsComponent
           isTrunfoCard={ this.isTrunfoCard }
-        />
+        /> */}
       </div>
     );
   }
