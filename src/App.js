@@ -1,6 +1,8 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import data from './components/DataCards';
+import CardsComponent from './components/CardsComponent';
 
 class App extends React.Component {
   constructor() {
@@ -17,8 +19,15 @@ class App extends React.Component {
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
+      cardData: data,
     };
   }
+
+  isTrunfoCard = (cardInfo) => {
+    if (cardInfo) {
+      return (<span data-testid="trunfo-card">Super Trunfo</span>);
+    }
+  };
 
   checkInput = () => {
     const { cardName,
@@ -90,7 +99,46 @@ class App extends React.Component {
     });
   }
 
-  // onSaveButtonClick: () => { },
+  onSaveButtonClick = (event) => {
+    event.preventDefault();
+
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo } = this.state;
+
+    const newCard = {
+      cardName: { cardName },
+      cardDescription: { cardDescription },
+      cardAttr1: { cardAttr1 },
+      cardAttr2: { cardAttr2 },
+      cardAttr3: { cardAttr3 },
+      cardImage: { cardImage },
+      cardRare: { cardRare },
+      cardTrunfo: { cardTrunfo },
+    };
+
+    this.setState(() => ({
+      cardData: [newCard, ...data],
+    }));
+    this.setState(() => ({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      hasTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
+  }
 
   render() {
     return (
@@ -99,8 +147,15 @@ class App extends React.Component {
         <Form
           { ...this.state }
           onInputChange={ this.onInputChange }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
-        <Card { ...this.state } />
+        <Card
+          { ...this.state }
+          isTrunfoCard={ this.isTrunfoCard }
+        />
+        <CardsComponent
+          isTrunfoCard={ this.isTrunfoCard }
+        />
       </div>
     );
   }
