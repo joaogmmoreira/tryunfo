@@ -4,10 +4,10 @@ import data from './DataCards';
 
 class CardsComponent extends React.Component {
   render() {
-    const { isTrunfoCard } = this.props;
+    const { isTrunfoCard, cardData } = this.props;
 
-    const cardsList = data.map((element) => (
-      <div key={ element.name }>
+    const cardsList = cardData.map((element) => (
+      <div key={ element.cardName }>
         <h3 data-testid="name-card">{ element.cardName }</h3>
         <img
           data-testid="image-card"
