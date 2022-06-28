@@ -12,8 +12,13 @@ class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      isTrunfoCard,
     } = this.props;
+
+    const isTrunfoCard = (cardInfo) => {
+      if (cardInfo) {
+        return (<span data-testid="trunfo-card">Super Trunfo</span>);
+      }
+    };
 
     return (
       <div>
@@ -40,7 +45,6 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  isTrunfoCard: PropTypes.func.isRequired,
 };
 
 export default Card;
