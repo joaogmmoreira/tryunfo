@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import data from './DataCards';
 
 class CardsComponent extends React.Component {
   render() {
@@ -33,6 +32,7 @@ class CardsComponent extends React.Component {
 
 CardsComponent.propTypes = {
   isTrunfoCard: PropTypes.func.isRequired,
+  cardData: PropTypes.string.isRequired,
 };
 
 export default CardsComponent;

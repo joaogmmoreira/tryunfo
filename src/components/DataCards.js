@@ -1,4 +1,4 @@
-const veryRare = 'muito raro';
+// const veryRare = 'muito raro';
 
 const data = [
   // { cardName: 'Bad FalleN',
