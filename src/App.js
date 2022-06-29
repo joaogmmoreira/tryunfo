@@ -25,9 +25,10 @@ class App extends React.Component {
 
   // handleDeleteCard = (name) => {
   //   const { cardData } = this.state;
-  //   cardData.filter((element) => !element.name);
-  //   // console.log(name);
-  //   // continuar
+  //   // console.log(cardData.filter((element) => element.cardName !== name));
+  //   return this.setState({
+  //     cardData: cardData.filter((element) => element.cardName !== name),
+  //   }, this.isTrunfoCard());
   // }
 
   isThereTrunfoInData = () => {
