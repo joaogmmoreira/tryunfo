@@ -23,34 +23,29 @@ class App extends React.Component {
     };
   }
 
-  isTrunfoCard = (cardInfo) => {
-    if (cardInfo) {
-      return (<span data-testid="trunfo-card">Super Trunfo</span>);
-    }
-  };
+  handleDeleteCard = (name) => {
+    console.log(name);
+    // continuar
+  }
 
   isThereTrunfoInData = () => {
     const { cardData } = this.state;
     // console.log(data);
-    cardData.some((element) => element.cardTrunfo === true);
+    return cardData.some((element) => element.cardTrunfo === true);
   }
 
-  handleCheckBox = () => {
-    (<span>Você já tem um Super Trunfo em seu baralho</span>);
-  };
-
-  handleHasTrunfo = (func) => {
-    if (func) {
-      this.setState({
+  handleHasTrunfo = () => {
+    if (this.isThereTrunfoInData()) {
+      return this.setState({
         hasTrunfo: true,
       }, () => {
-        this.handleCheckBox();
+        // console.log(this.state);
       });
     }
-    this.setState({
+    return this.setState({
       hasTrunfo: false,
     });
-  };
+  }
 
   checkInput = () => {
     const { cardName,
@@ -120,12 +115,11 @@ class App extends React.Component {
       this.handleButtonChange(this.checkInput(),
         this.checkAttrBetween0and90(), this.checkAttrSum());
     });
+    this.handleHasTrunfo();
   }
 
   onSaveButtonClick = (event) => {
     event.preventDefault();
-    // não está alterando o estado de hastrunfo
-    // acusa falta de key em cardcomponent
     const {
       cardName,
       cardDescription,
@@ -153,7 +147,9 @@ class App extends React.Component {
 
     this.setState(() => ({
       cardData: [newCard, ...cardData],
-    }));
+    }), () => {
+      this.handleHasTrunfo();
+    });
 
     this.setState(() => ({
       cardName: '',
@@ -178,6 +174,8 @@ class App extends React.Component {
           { ...this.state }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
+          isTrunfoCard={ this.isTrunfoCard }
+          // isThereTrunfoInData={ this.isThereTrunfoInData }
           // handleCheckBox={ this.handleCheckBox }
         />
         <Card
@@ -187,6 +185,7 @@ class App extends React.Component {
         <CardsComponent
           isTrunfoCard={ this.isTrunfoCard }
           cardData={ cardData }
+          handleDeleteCard={ this.handleDeleteCard }
         />
       </div>
     );
