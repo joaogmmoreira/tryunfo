@@ -40,6 +40,7 @@ class CardsComponent extends React.Component {
 CardsComponent.propTypes = {
   // isTrunfoCard: PropTypes.func.isRequired,
   cardData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleDeleteCard: PropTypes.func.isRequired,
 };
 
 export default CardsComponent;

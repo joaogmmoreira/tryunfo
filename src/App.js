@@ -23,10 +23,12 @@ class App extends React.Component {
     };
   }
 
-  handleDeleteCard = (name) => {
-    console.log(name);
-    // continuar
-  }
+  // handleDeleteCard = (name) => {
+  //   const { cardData } = this.state;
+  //   cardData.filter((element) => !element.name);
+  //   // console.log(name);
+  //   // continuar
+  // }
 
   isThereTrunfoInData = () => {
     const { cardData } = this.state;
