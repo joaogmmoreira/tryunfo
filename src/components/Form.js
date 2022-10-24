@@ -72,7 +72,7 @@ class Form extends React.Component {
 
         <div>
           <label htmlFor="cardAttr1">
-            Rating 1.0:
+            Rating 2.0:
             <input
               data-testid="attr1-input"
               type="number"

@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-import data from './components/DataCards';
+import imperialData from './Cards/Imperial/DataCards';
 import CardsComponent from './components/CardsComponent';
 
 class App extends React.Component {
@@ -19,7 +19,7 @@ class App extends React.Component {
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
-      cardData: data,
+      cardData: imperialData,
     };
   }
 
