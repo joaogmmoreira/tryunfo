@@ -21,15 +21,47 @@ class Card extends React.Component {
     };
 
     return (
-      <div>
-        <h3 data-testid="name-card">{ cardName }</h3>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <p data-testid="description-card">{ cardDescription }</p>
-        <span data-testid="attr1-card">{ cardAttr1 }</span>
-        <span data-testid="attr2-card">{ cardAttr2 }</span>
-        <span data-testid="attr3-card">{ cardAttr3 }</span>
-        <span data-testid="rare-card">{ cardRare }</span>
-        <span>{ isTrunfoCard(cardTrunfo) }</span>
+      <div className="card-preview">
+        <h3 className="name-card" data-testid="name-card">{ cardName }</h3>
+        <img
+          className="image-card"
+          data-testid="image-card"
+          src={ cardImage }
+          alt={ cardName }
+        />
+        <p
+          className="description-card"
+          data-testid="description-card"
+        >
+          { cardDescription }
+        </p>
+        <div className="attributes">
+          <span
+            className="attr"
+            data-testid="attr1-card"
+          >
+            {`Rating 2.0: ${cardAttr1}`}
+          </span>
+          <span
+            className="attr"
+            data-testid="attr2-card"
+          >
+            { `K/D Ratio: ${cardAttr2}` }
+          </span>
+          <span
+            className="attr"
+            data-testid="attr3-card"
+          >
+            {`Major Championship: ${cardAttr3}`}
+          </span>
+          <span
+            className="rare-card"
+            data-testid="rare-card"
+          >
+            {`Rarity: ${cardRare}`}
+          </span>
+          <span className="isTrunfo">{ isTrunfoCard(cardTrunfo) }</span>
+        </div>
       </div>
 
     );

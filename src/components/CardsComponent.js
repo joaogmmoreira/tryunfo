@@ -6,19 +6,46 @@ class CardsComponent extends React.Component {
     const { cardData, handleDeleteCard } = this.props;
 
     const cardsList = cardData.map((element) => (
-      <div key={ element.cardName }>
-        <h3 data-testid="name-card">{ element.cardName }</h3>
+      <div className="card-preview" key={ element.cardName }>
+        <h3 className="name-card" data-testid="name-card">{ element.cardName }</h3>
         <img
+          className="image-card"
           data-testid="image-card"
           src={ element.cardImage }
           alt={ element.cardName }
         />
-        <p data-testid="description-card">{ element.cardDescription }</p>
-        <span data-testid="attr1-card">{ element.cardAttr1 }</span>
-        <span data-testid="attr2-card">{ element.cardAttr2 }</span>
-        <span data-testid="attr3-card">{ element.cardAttr3 }</span>
-        <span data-testid="rare-card">{ element.cardRare }</span>
-        {/* <span>{ isTrunfoCard(element.cardTrunfo) }</span> */}
+        <p
+          className="description-card"
+          data-testid="description-card"
+        >
+          { element.cardDescription }
+        </p>
+        <div className="attributes">
+          <span
+            className="attr"
+            data-testid="attr1-card"
+          >
+            { `Rating 2.0: ${element.cardAttr1}` }
+          </span>
+          <span
+            className="attr"
+            data-testid="attr2-card"
+          >
+            { `K/D Ratio: ${element.cardAttr2}` }
+          </span>
+          <span
+            className="attr"
+            data-testid="attr3-card"
+          >
+            { `Major Championship: ${element.cardAttr3}` }
+          </span>
+          <span
+            className="attr"
+            data-testid="rare-card"
+          >
+            { element.cardRare }
+          </span>
+        </div>
         <button
           data-testid="delete-button"
           type="button"

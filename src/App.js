@@ -3,6 +3,8 @@ import Form from './components/Form';
 import Card from './components/Card';
 import imperialData from './Cards/Imperial/DataCards';
 import CardsComponent from './components/CardsComponent';
+import './Style/App.css';
+import './Style/CardPreview.css';
 
 class App extends React.Component {
   constructor() {
@@ -77,10 +79,8 @@ class App extends React.Component {
     if ((Number(cardAttr1) > maxAttr || Number(cardAttr1) < minAttr)
       || (Number(cardAttr2) > maxAttr || Number(cardAttr2) < minAttr)
       || (Number(cardAttr3) > maxAttr || Number(cardAttr3) < minAttr)) {
-      // console.log('zuou');
       return true;
     }
-    // console.log('tá na moral');
     return false;
   }
 
@@ -88,21 +88,17 @@ class App extends React.Component {
     const maxSum = 210;
     const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
     if (Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) > maxSum) {
-      // return console.log('zuou');
       return true;
     }
-    // return console.log('Tá na moral');
     return false;
   }
 
   handleButtonChange = (func1, func2, func3) => {
     if (func1 || func2 || func3) {
-      // console.log('True');
       this.setState({
         isSaveButtonDisabled: true,
       }, () => {});
     } else {
-      // console.log('false');
       this.setState({
         isSaveButtonDisabled: false,
       }, () => {});
@@ -171,7 +167,7 @@ class App extends React.Component {
   render() {
     const { cardData } = this.state;
     return (
-      <div>
+      <div className="main">
         <h1>Tryunfo!</h1>
         <Form
           { ...this.state }

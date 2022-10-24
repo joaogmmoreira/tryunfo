@@ -102,7 +102,7 @@ class Form extends React.Component {
 
         <div>
           <label htmlFor="cardAttr3">
-            Major Champion:
+            Major Championship:
             <input
               data-testid="attr3-input"
               type="number"
