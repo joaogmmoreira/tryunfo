@@ -4,4 +4,16 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 1920px;
+}
+
+.making-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  width: 100%;
+  margin: 25px;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import avatarImage from '../Images/pngwing.com.png';
 
 class Card extends React.Component {
   render() {
@@ -23,12 +24,19 @@ class Card extends React.Component {
     return (
       <div className="card-preview">
         <h3 className="name-card" data-testid="name-card">{ cardName }</h3>
-        <img
-          className="image-card"
-          data-testid="image-card"
-          src={ cardImage }
-          alt={ cardName }
-        />
+        {
+          cardImage ? (<img
+            className="image-card"
+            data-testid="image-card"
+            src={ cardImage }
+            alt={ cardName }
+          />) : (<img
+            className="image-card"
+            data-testid="image-card"
+            src={ avatarImage }
+            alt={ cardName }
+          />)
+        }
         <p
           className="description-card"
           data-testid="description-card"

@@ -57,7 +57,7 @@ class CardsComponent extends React.Component {
     ));
 
     return (
-      <div>
+      <div className="all-cards">
         {cardsList}
       </div>
     );

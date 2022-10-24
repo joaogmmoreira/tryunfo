@@ -25,13 +25,14 @@ class App extends React.Component {
     };
   }
 
-  // handleDeleteCard = (name) => {
-  //   const { cardData } = this.state;
-  //   // console.log(cardData.filter((element) => element.cardName !== name));
-  //   return this.setState({
-  //     cardData: cardData.filter((element) => element.cardName !== name),
-  //   }, this.isTrunfoCard());
-  // }
+  handleDeleteCard = (name) => {
+    const { cardData } = this.state;
+    const newData = cardData.filter((element) => element.cardName !== name);
+    console.log(newData);
+    return this.setState({
+      cardData: newData,
+    });
+  }
 
   isThereTrunfoInData = () => {
     const { cardData } = this.state;
@@ -43,8 +44,6 @@ class App extends React.Component {
     if (this.isThereTrunfoInData()) {
       return this.setState({
         hasTrunfo: true,
-      }, () => {
-        // console.log(this.state);
       });
     }
     return this.setState({
@@ -64,10 +63,8 @@ class App extends React.Component {
       || cardImage.length === 0
       || cardRare.length === 0
     ) {
-      // return console.log('Zuou');
       return true;
     }
-    // return console.log('Tá na moral');
     return false;
   }
 
@@ -169,18 +166,19 @@ class App extends React.Component {
     return (
       <div className="main">
         <h1>Tryunfo!</h1>
-        <Form
-          { ...this.state }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
-          isTrunfoCard={ this.isTrunfoCard }
-          // isThereTrunfoInData={ this.isThereTrunfoInData }
-          // handleCheckBox={ this.handleCheckBox }
-        />
-        <Card
-          { ...this.state }
-          isTrunfoCard={ this.isTrunfoCard }
-        />
+        <div className="making-cards">
+          <Form
+            { ...this.state }
+            onInputChange={ this.onInputChange }
+            onSaveButtonClick={ this.onSaveButtonClick }
+            isTrunfoCard={ this.isTrunfoCard }
+          />
+          <Card
+            { ...this.state }
+            isTrunfoCard={ this.isTrunfoCard }
+          />
+        </div>
+        <hr />
         <CardsComponent
           isTrunfoCard={ this.isTrunfoCard }
           cardData={ cardData }
